@@ -11,3 +11,14 @@ INSERT INTO theme (title, metadata, is_active) VALUES
 ('Blue theme', 'metadata for frontend', FALSE),
 ('Midnight theme', 'metadata for frontend', FALSE);
 
+CREATE TABLE backgrounds (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title TEXT NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+INSERT INTO backgrounds (title, is_active) VALUES
+('birds', TRUE),
+('cars', FALSE);
+
+
