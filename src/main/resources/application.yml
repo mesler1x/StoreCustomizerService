@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name:
+      StoreCustomizerService
+
+server:
+  servlet:
+    context-path: /api/v1/customizer
+  port: 8089
+
+
