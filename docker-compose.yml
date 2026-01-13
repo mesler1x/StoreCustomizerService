@@ -3,7 +3,7 @@ services:
     build:
       dockerfile: ./Dockerfile
     environment:
-      - WEBSTORE_PG_URL=jdbc:postgresql://localhost:6432/webstore
+      - WEBSTORE_PG_URL=jdbc:postgresql://89.169.177.64:6432/webstore
       - WEBSTORE_PG_USER=user
       - WEBSTORE_PG_PASS=password
     ports:
