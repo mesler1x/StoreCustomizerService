@@ -48,4 +48,18 @@ public class CustomizationController {
         log.info("Получен запрос на кастомизации");
         customizationService.chooseById(customizationId, customizationType);
     }
+
+    @Operation(summary = "Изменить название сайта")
+    @PutMapping("/site")
+    public void changeSiteName(@RequestParam String siteName) {
+        log.info("Получен запрос на изменение сайта");
+        customizationService.changeSiteName(siteName);
+    }
+
+    @Operation(summary = "Получить название сайта")
+    @GetMapping("/site")
+    public BaseCustomizationDto getSiteName() {
+        log.info("Получен запрос на получение сайта");
+        return customizationService.getSiteName();
+    }
 }

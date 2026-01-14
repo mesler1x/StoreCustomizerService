@@ -26,4 +26,12 @@ public class CustomizationService {
     public void chooseById(UUID themeId, CustomizationType customizationType) {
         customizationRepository.chooseCustomizationById(themeId, customizationType);
     }
+
+    public void changeSiteName(String siteName) {
+        customizationRepository.changeSiteName(siteName);
+    }
+
+    public BaseCustomizationDto getSiteName() {
+        return customizationRepository.getSiteName();
+    }
 }

@@ -101,4 +101,42 @@ public class CustomizationRepository {
                         .addValue("customizationType", customizationType.name())
         );
     }
+
+    public void changeSiteName(String siteName) {
+        namedParameterJdbcTemplate.update(
+                """
+                        UPDATE customization
+                        SET title = :siteName
+                        WHERE customization_type = 'SITE_NAME'
+                        """,
+                new MapSqlParameterSource()
+                        .addValue("siteName", siteName)
+        );
+    }
+
+    public BaseCustomizationDto getSiteName() {
+        return namedParameterJdbcTemplate.query(
+                """
+                        SELECT
+                        id,
+                            title,
+                            customization_type,
+                            is_active
+                        FROM customization
+                        WHERE customization_type = 'SITE_NAME'
+                        """,
+                rs -> {
+                    if (rs.next()) {
+                        return new BaseCustomizationDto(
+                                rs.getObject("id", UUID.class),
+                                rs.getString("title"),
+                                rs.getString("customization_type"),
+                                rs.getBoolean("is_active")
+                        );
+                    }
+
+                    return null;
+                }
+        );
+    }
 }
